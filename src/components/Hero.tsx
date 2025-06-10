@@ -1,8 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { Search, MapPin, Users, Briefcase } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-red-600 text-white">
       <div className="absolute inset-0 bg-black/20"></div>
@@ -31,7 +34,11 @@ export const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-4 text-lg">
+            <Button 
+              size="lg" 
+              className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-4 text-lg"
+              onClick={() => navigate('/jobs')}
+            >
               <Search className="w-5 h-5 mr-2" />
               Chercher un Emploi
             </Button>
@@ -39,6 +46,7 @@ export const Hero = () => {
               size="lg" 
               variant="outline" 
               className="border-2 border-white text-white hover:bg-white hover:text-blue-700 font-semibold px-8 py-4 text-lg"
+              onClick={() => navigate('/auth')}
             >
               <Briefcase className="w-5 h-5 mr-2" />
               Poster une Offre
